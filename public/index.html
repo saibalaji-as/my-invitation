@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sai Balaji ❤️ Shanmuga Priya - Wedding Invitation</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Italianno&family=Sacramento&family=Parisienne&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Satisfy&display=swap" rel="stylesheet">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone-with-data.min.js"></script>
@@ -19,7 +21,7 @@
 
         body {
             margin: 0;
-            font-family: 'Parisienne', cursive;
+            font-family: 'Open Sans', sans-serif;
             background-image: url('https://i.imgur.com/OQZrXKg.jpg');
             background-size: cover;
             background-position: center;
@@ -67,18 +69,19 @@
         }
 
         h1 {
-            font-family: 'Parisienne', cursive;
+            font-family: "Satisfy", cursive;
             font-size: 54px;
             color: #b30059;
             margin-bottom: 15px;
             line-height: 1.2;
+            margin: 0px;
         }
 
         .subheading {
             font-size: 20px;
             color: #6c757d;
             margin-bottom: 20px;
-            font-family: 'Italianno', cursive;
+            font-family: 'Open Sans', sans-serif;
             font-weight: 600;
         }
 
@@ -94,7 +97,7 @@
             color: #a61e4d;
             margin-top: 30px;
             font-size: 20px;
-            font-family: 'Italianno', cursive;
+            font-family: 'Open Sans', sans-serif;
         }
 
         .viewer {
@@ -106,8 +109,10 @@
         }
 
         .heart {
-            color: #ff4d6d;
-            font-size: 26px;
+            color: #90142a;
+            font-size: 18px;
+            font-weight: 800;
+            font-family: "Parisienne", cursive;
             animation: pulse 1s infinite;
         }
 
@@ -147,12 +152,12 @@
 
         .cupid1 {
             top: 5px;
-    left: -7px;
+            left: -7px;
         }
 
         .cupid2 {
             bottom: 50px;
-    right: -8px;
+            right: -8px;
         }
 
         @keyframes floatCupid {
@@ -208,7 +213,7 @@
         .countdown-timer .label {
             font-size: 14px;
             color: #6c757d;
-            font-family: 'Italianno', cursive;
+            font-family: 'Open Sans', sans-serif;
             margin-top: 4px;
         }
 
@@ -243,10 +248,74 @@
         .venue-box a:hover {
             text-decoration: underline;
         }
+
+        .audio-toggle {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background-color: #d6336c;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .audio-toggle:hover {
+            background-color: #ad1457;
+        }
+
+        .intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff0f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            animation: fadeIn 1.5s ease-in-out;
+            cursor: pointer;
+            flex-direction: column;
+        }
+
+        .intro-text {
+            font-size: 28px;
+            color: #d6336c;
+            font-family: 'Great Vibes', cursive;
+            text-align: center;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
     </style>
 </head>
 
 <body>
+    <div class="intro-overlay" id="introOverlay">
+        <div class="intro-text">💌 Click to open the invitation</div>
+    </div>
     <div class="overlay"></div>
     <div class="card" id="invitation" style="display:none">
         <img src="/assets/cupid.png" class="cupid cupid1" alt="Cupid">
@@ -254,7 +323,9 @@
             <img src="/assets/cupid.png" class="cupid" alt="Cupid">
         </div>
         <div class="viewer" id="viewerName"></div>
-        <h1>Sai Balaji <span class="heart">❤️</span> Shanmuga Priya</h1>
+        <h1>Sai Balaji</h1>
+        <span class="heart">Weds</span>
+        <h1>Shanmuga Priya</h1>
         <div id="countdown" class="countdown-timer"></div>
         <div class="subheading">Together with their families</div>
         <p>We invite you to celebrate the beginning of our forever love story.</p>
@@ -277,38 +348,38 @@
             of joy with you.</p>
     </div>
 
-    <audio id="bgMusic" src="https://github.com/saibalaji-as/my-invitation/raw/refs/heads/main/Mangalayam%20Ringtone%20Download%20-%20MobCup.Com.Co.mp3" loop></audio>
+    <button class="audio-toggle" id="audioToggleBtn">⏸</button>
+
+    <audio id="bgMusic"
+        src="https://github.com/saibalaji-as/my-invitation/raw/refs/heads/main/INTRUMENTAL-MUSIC-Mulumathy-Jodhaa-Akbar-Instrumental-Flute.m4a"
+        loop></audio>
 
     <script>
-        const name = prompt("Enter your name to view the invitation:");
-        if (name) {
-            fetch('/api/record-viewer', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name })
-            });
-            document.getElementById('viewerName').innerHTML = `<p>Dear ${name},</p>`;
-            document.getElementById('invitation').style.display = 'block';
+        const audioToggleBtn = document.getElementById('audioToggleBtn');
+        const introOverlay = document.getElementById('introOverlay');
 
-            // ✅ Wait for DOM update before playing music
-        setTimeout(() => {
-            const bgMusic = document.getElementById('bgMusic');
-            bgMusic.volume = 0.5;
-            bgMusic.play().catch(() => {
-                // ⛔ Autoplay blocked → wait for user click
-                const playMusic = () => {
+        // Wait for user to click to open the invitation
+        introOverlay.addEventListener('click', () => {
+            introOverlay.style.display = 'none'; // Hide intro screen
+
+            const name = prompt("Enter your name to view the invitation:");
+            if (name) {
+                fetch('/api/record-viewer', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name })
+                });
+
+                document.getElementById('viewerName').innerHTML = `<p>Dear ${name},</p>`;
+                document.getElementById('invitation').style.display = 'block';
+                if (bgMusic.paused) {
                     bgMusic.play();
-                    document.body.removeEventListener('click', playMusic);
-                };
-                document.body.addEventListener('click', playMusic);
-            });
-        }, 500); // small delay to ensure DOM visibility
-        }
+                }
+            }
+        });
 
         function updateCountdown() {
-            // 🎯 Target date: 7 May 2025, 9:00 AM IST
             const countdownTarget = moment("07-07-2025 07:00");
-
             const now = moment();
             const duration = moment.duration(countdownTarget.diff(now));
 
@@ -328,7 +399,18 @@
 
         updateCountdown();
         setInterval(updateCountdown, 1000);
+
+        audioToggleBtn.addEventListener('click', () => {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                audioToggleBtn.innerHTML = "⏸";
+            } else {
+                bgMusic.pause();
+                audioToggleBtn.innerHTML = "▶";
+            }
+        });
     </script>
+
 
 
 </body>
