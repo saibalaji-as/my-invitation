@@ -275,6 +275,9 @@
         <p class="love-message">Two hearts, one soul, one beautiful journey. We are truly blessed to share this moment
             of joy with you.</p>
     </div>
+
+    <audio id="bgMusic" src="https://github.com/saibalaji-as/my-invitation/raw/refs/heads/main/Mangalayam%20Ringtone%20Download%20-%20MobCup.Com.Co.mp3" loop></audio>
+
     <script>
         const name = prompt("Enter your name to view the invitation:");
         if (name) {
@@ -285,6 +288,20 @@
             });
             document.getElementById('viewerName').innerHTML = `<p>Dear ${name},</p>`;
             document.getElementById('invitation').style.display = 'block';
+
+            // ✅ Wait for DOM update before playing music
+        setTimeout(() => {
+            const bgMusic = document.getElementById('bgMusic');
+            bgMusic.volume = 0.5;
+            bgMusic.play().catch(() => {
+                // ⛔ Autoplay blocked → wait for user click
+                const playMusic = () => {
+                    bgMusic.play();
+                    document.body.removeEventListener('click', playMusic);
+                };
+                document.body.addEventListener('click', playMusic);
+            });
+        }, 500); // small delay to ensure DOM visibility
         }
 
         function updateCountdown() {
