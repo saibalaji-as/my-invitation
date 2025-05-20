@@ -146,13 +146,13 @@
         }
 
         .cupid1 {
-            top: 0px;
-            left: -15px;
+            top: 5px;
+    left: -7px;
         }
 
         .cupid2 {
-            bottom: -14px;
-            right: -15px;
+            bottom: 50px;
+    right: -8px;
         }
 
         @keyframes floatCupid {
@@ -250,7 +250,9 @@
     <div class="overlay"></div>
     <div class="card" id="invitation" style="display:none">
         <img src="/assets/cupid.png" class="cupid cupid1" alt="Cupid">
-        <img src="/assets/cupid.png" class="cupid cupid2" alt="Cupid">
+        <div style="transform: scaleX(-1); position: absolute;" class="cupid2">
+            <img src="/assets/cupid.png" class="cupid" alt="Cupid">
+        </div>
         <div class="viewer" id="viewerName"></div>
         <h1>Sai Balaji <span class="heart">❤️</span> Shanmuga Priya</h1>
         <div id="countdown" class="countdown-timer"></div>
