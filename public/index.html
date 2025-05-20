@@ -22,7 +22,7 @@
         body {
             margin: 0;
             font-family: 'Open Sans', sans-serif;
-            background-image: url('https://i.imgur.com/OQZrXKg.jpg');
+            background-image: url('https://as2.ftcdn.net/v2/jpg/01/35/55/87/1000_F_135558761_kBPvvEeG22JGNWhQeXR3QRzfBvRjhTIH.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -348,7 +348,9 @@
             of joy with you.</p>
     </div>
 
-    <button class="audio-toggle" id="audioToggleBtn">⏸</button>
+    <button class="audio-toggle" id="audioToggleBtn">
+        <img src="/assets/pause.png" height="12px" width="12px" />
+    </button>
 
     <audio id="bgMusic"
         src="https://github.com/saibalaji-as/my-invitation/raw/refs/heads/main/INTRUMENTAL-MUSIC-Mulumathy-Jodhaa-Akbar-Instrumental-Flute.m4a"
@@ -403,10 +405,10 @@
         audioToggleBtn.addEventListener('click', () => {
             if (bgMusic.paused) {
                 bgMusic.play();
-                audioToggleBtn.innerHTML = "⏸";
+                audioToggleBtn.innerHTML = `<img src="/assets/pause.png" height="12px" width="12px" />`;
             } else {
                 bgMusic.pause();
-                audioToggleBtn.innerHTML = "▶";
+                audioToggleBtn.innerHTML = `<img src="/assets/play.png" height="12px" width="12px" />`;
             }
         });
     </script>
