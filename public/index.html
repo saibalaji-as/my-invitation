@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sai Balaji ❤️ Shanmuga Priya - Wedding Invitation</title>
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
@@ -31,6 +32,16 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+        }
+
+        .couple-name {
+            background-position-x: 50%;
+            background-position-y: 22vh;
+            background-image: url('https://i.pinimg.com/originals/38/1b/68/381b68ced75924ef99c6a80bfe56cb3f.gif');
+            background-size: 45px;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            padding: 15px;
         }
 
         .overlay {
@@ -109,8 +120,8 @@
         }
 
         .heart {
-            color: #90142a;
-            font-size: 18px;
+            color: #ffffff;
+            font-size: 13px;
             font-weight: 800;
             font-family: "Parisienne", cursive;
             animation: pulse 1s infinite;
@@ -146,18 +157,18 @@
         .cupid {
             width: 60px;
             height: 60px;
-            position: absolute;
+            position: fixed;
             animation: floatCupid 4s ease-in-out infinite;
         }
 
         .cupid1 {
-            top: 5px;
-            left: -7px;
+            top: 30px;
+            left: 15px;
         }
 
         .cupid2 {
-            bottom: 50px;
-            right: -8px;
+            bottom: calc(100% - 88vh);
+            right: 12px;
         }
 
         @keyframes floatCupid {
@@ -319,13 +330,15 @@
     <div class="overlay"></div>
     <div class="card" id="invitation" style="display:none">
         <img src="/assets/cupid.png" class="cupid cupid1" alt="Cupid">
-        <div style="transform: scaleX(-1); position: absolute;" class="cupid2">
+        <div style="transform: scaleX(-1); position: fixed;" class="cupid2">
             <img src="/assets/cupid.png" class="cupid" alt="Cupid">
         </div>
         <div class="viewer" id="viewerName"></div>
-        <h1>Sai Balaji</h1>
-        <span class="heart">Weds</span>
-        <h1>Shanmuga Priya</h1>
+        <div class="couple-name">
+            <h1>Sai Balaji</h1>
+            <span class="heart">Weds</span>
+            <h1>Shanmuga Priya</h1>
+        </div>
         <div id="countdown" class="countdown-timer"></div>
         <div class="subheading">Together with their families</div>
         <p>We invite you to celebrate the beginning of our forever love story.</p>
