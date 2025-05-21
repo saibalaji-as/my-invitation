@@ -35,14 +35,15 @@
         }
 
         .couple-name {
-            background-position-x: 50%;
-            background-position-y: 22vh;
-            background-image: url('https://i.pinimg.com/originals/38/1b/68/381b68ced75924ef99c6a80bfe56cb3f.gif');
-            background-size: 45px;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            padding: 15px;
-        }
+    background-position-x: 50%;
+    background-position-y: 50%;
+    background-image: url('https://i.pinimg.com/originals/38/1b/68/381b68ced75924ef99c6a80bfe56cb3f.gif');
+    background-size: 32px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 30px;
+    display: block;
+}
 
         .overlay {
             position: fixed;
@@ -120,12 +121,13 @@
         }
 
         .heart {
-            color: #ffffff;
-            font-size: 13px;
-            font-weight: 800;
-            font-family: "Parisienne", cursive;
-            animation: pulse 1s infinite;
-        }
+    color: #ffffff;
+    font-size: 8px;
+    line-height: 26px;
+    font-weight: 800;
+    font-family: "Parisienne", cursive;
+    animation: pulse 1s infinite;
+}
 
         @keyframes pulse {
             0% {
@@ -334,9 +336,9 @@
             <img src="/assets/cupid.png" class="cupid" alt="Cupid">
         </div>
         <div class="viewer" id="viewerName"></div>
-        <div class="couple-name">
+        <div class="">
             <h1>Sai Balaji</h1>
-            <span class="heart">Weds</span>
+            <span class="heart couple-name">Weds</span>
             <h1>Shanmuga Priya</h1>
         </div>
         <div id="countdown" class="countdown-timer"></div>
