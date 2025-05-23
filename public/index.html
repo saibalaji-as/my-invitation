@@ -11,7 +11,7 @@
   <meta property="og:type" content="website" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sai Balaji ❤️ Shanmuga Priya - Wedding Invitation</title>
+    <title>Sai ❤️ Priya</title>
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -176,8 +176,12 @@
         }
 
         .cupid2 {
-            bottom: calc(100% - 88vh);
-            right: 12px;
+            bottom: 50px;
+            right: 52px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         @keyframes floatCupid {
@@ -418,7 +422,7 @@
             const seconds = duration.seconds();
 
             document.getElementById("countdown").innerHTML =
-                `<div>Countdown to Wedding</div> <div style="font-family: monospace">${days}d ${hours}h ${minutes}m ${seconds}s</div>`;
+                `<div>Countdown to Wedding</div> <div style="font-family: monospace">${days.toString()}d ${hours.toString()}h ${minutes.toString()}m ${seconds.toString()}s</div>`;
         }
 
         updateCountdown();
