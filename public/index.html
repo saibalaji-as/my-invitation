@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
 
     <meta property="og:title" content="You're Invited! 💍 Sai & Priya's Wedding" />
-  <meta property="og:description" content="Join us in celebrating our special day. Click to view your invitation!" />
-  <meta property="og:image" content="https://my-invitation.onrender.com/assets/cupid.png" />
-  <meta property="og:url" content="https://my-invitation.onrender.com/" />
-  <meta property="og:type" content="website" />
+    <meta property="og:description" content="Join us in celebrating our special day. Click to view your invitation!" />
+    <meta property="og:image" content="https://my-invitation.onrender.com/assets/cupid.png" />
+    <meta property="og:url" content="https://my-invitation.onrender.com/" />
+    <meta property="og:type" content="website" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sai ❤️ Priya</title>
@@ -42,15 +42,15 @@
         }
 
         .couple-name {
-    background-position-x: 50%;
-    background-position-y: 50%;
-    background-image: url('https://i.pinimg.com/originals/38/1b/68/381b68ced75924ef99c6a80bfe56cb3f.gif');
-    background-size: 32px;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    height: 30px;
-    display: block;
-}
+            background-position-x: 50%;
+            background-position-y: 50%;
+            background-image: url('https://i.pinimg.com/originals/38/1b/68/381b68ced75924ef99c6a80bfe56cb3f.gif');
+            background-size: 32px;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            height: 30px;
+            display: block;
+        }
 
         .overlay {
             position: fixed;
@@ -128,13 +128,13 @@
         }
 
         .heart {
-    color: #ffffff;
-    font-size: 8px;
-    line-height: 26px;
-    font-weight: 800;
-    font-family: "Parisienne", cursive;
-    animation: pulse 1s infinite;
-}
+            color: #ffffff;
+            font-size: 8px;
+            line-height: 26px;
+            font-weight: 800;
+            font-family: "Parisienne", cursive;
+            animation: pulse 1s infinite;
+        }
 
         @keyframes pulse {
             0% {
@@ -407,7 +407,7 @@
         });
 
         function updateCountdown() {
-            const countdownTarget = moment("07-07-2025 07:00");
+            const countdownTarget = moment("2025-07-07T07:00:00"); // ISO 8601 format
             const now = moment();
             const duration = moment.duration(countdownTarget.diff(now));
 
@@ -422,8 +422,9 @@
             const seconds = duration.seconds();
 
             document.getElementById("countdown").innerHTML =
-                `<div>Countdown to Wedding</div> <div style="font-family: monospace">${days.toString()}d ${hours.toString()}h ${minutes.toString()}m ${seconds.toString()}s</div>`;
+                `<div>Countdown to Wedding</div> <div style="font-family: monospace">${days}d ${hours}h ${minutes}m ${seconds}s</div>`;
         }
+
 
         updateCountdown();
         setInterval(updateCountdown, 1000);
