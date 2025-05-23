@@ -389,15 +389,13 @@
         // Wait for user to click to open the invitation
         introOverlay.addEventListener('click', () => {
             introOverlay.style.display = 'none'; // Hide intro screen
+            const viewerName = localStorage.getItem('viewerName');
 
-            const name = prompt("Enter your name to view the invitation:");
+            var name;
+            if (!viewerName) name = prompt("Enter your name to view the invitation:");
+            else name = viewerName;
             if (name) {
-                fetch('/api/record-viewer', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name })
-                });
-
+                localStorage.setItem('viewerName', name);
                 document.getElementById('viewerName').innerHTML = `<p>Dear ${name},</p>`;
                 document.getElementById('invitation').style.display = 'block';
                 if (bgMusic.paused) {
